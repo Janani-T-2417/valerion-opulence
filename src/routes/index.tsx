@@ -4,6 +4,9 @@ import { ArrowRight, Star } from "lucide-react";
 import hero from "@/assets/hero-1.jpg";
 import editorial1 from "@/assets/editorial-1.jpg";
 import editorial2 from "@/assets/editorial-2.jpg";
+import editorial3 from "@/assets/editorial-3.jpg";
+import atelierDetail from "@/assets/atelier-detail.jpg";
+import heroVideo from "@/assets/hero.mp4.asset.json";
 import { products } from "@/lib/products";
 import { ProductCard } from "@/components/ProductCard";
 import { Newsletter } from "@/components/Newsletter";
@@ -27,25 +30,28 @@ function Home() {
   return (
     <div className="overflow-x-hidden">
       {/* HERO */}
-      <section className="relative h-[100svh] min-h-[640px] flex items-end overflow-hidden">
+      <section className="relative h-[100svh] min-h-[640px] flex items-end overflow-hidden vignette">
         <div className="absolute inset-0">
-          <motion.img
-            src={hero} alt="House of Valerion"
-            initial={{ scale: 1.1 }} animate={{ scale: 1 }} transition={{ duration: 2.4, ease: [0.7, 0, 0.3, 1] }}
+          <motion.video
+            initial={{ scale: 1.12, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 2.6, ease: [0.7, 0, 0.3, 1] }}
+            src={heroVideo.url}
+            poster={hero}
+            autoPlay muted loop playsInline preload="auto"
             className="w-full h-full object-cover object-[60%_center]"
-            width={1920} height={1280}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
         </div>
 
-        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 pb-20 lg:pb-28 w-full">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 pb-20 lg:pb-28 w-full">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }}>
             <SectionLabel>THE ART OF LUXURY MENSWEAR</SectionLabel>
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.1, delay: 0.5, ease: [0.7,0,0.3,1] }}
-            className="font-display text-[14vw] md:text-[8vw] lg:text-[7rem] leading-[0.9] mt-6 max-w-[16ch]"
+            className="font-display text-[14vw] md:text-[8vw] lg:text-[7rem] leading-[0.9] mt-6 max-w-[16ch] text-shadow-luxe"
           >
             Cinema, <br/><span className="italic text-gradient-gold">tailored.</span>
           </motion.h1>
@@ -68,9 +74,14 @@ function Home() {
           </motion.div>
         </div>
 
-        <div className="absolute right-6 lg:right-10 bottom-10 hidden md:flex flex-col items-center gap-3 text-[10px] tracking-luxe text-muted-foreground">
-          <span>SCROLL</span>
-          <span className="w-px h-12 bg-gradient-to-b from-gold to-transparent" />
+        <div className="absolute right-6 lg:right-10 bottom-10 hidden md:flex flex-col items-center gap-3 text-[10px] tracking-luxe text-muted-foreground z-10">
+          <span className="float-slow">SCROLL</span>
+          <span className="w-px h-16 bg-gradient-to-b from-gold to-transparent" />
+        </div>
+
+        <div className="absolute left-6 lg:left-10 bottom-10 hidden md:block z-10">
+          <div className="text-[10px] tracking-luxe text-muted-foreground">FILM</div>
+          <div className="font-display italic text-gradient-gold text-lg">Chapter I — MMXXVI</div>
         </div>
       </section>
 
@@ -97,12 +108,44 @@ function Home() {
           <SectionLabel>FEATURED COLLECTIONS</SectionLabel>
           <div className="flex flex-wrap items-end justify-between gap-6 mt-6">
             <h2 className="font-display text-5xl md:text-6xl max-w-[14ch] leading-[1]">The art of <span className="italic text-gradient-gold">presence.</span></h2>
-            <Link to="/shop" className="luxe-link text-[11px] tracking-luxe uppercase">View All Collections</Link>
+            <Link to="/collections" className="luxe-link text-[11px] tracking-luxe uppercase">View All Collections</Link>
           </div>
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-14">
           {featured.map((p, i) => <ProductCard key={p.id} product={p} index={i} />)}
+        </div>
+      </section>
+
+      {/* COLLECTION TILES */}
+      <section className="max-w-[1400px] mx-auto px-6 lg:px-10 py-20">
+        <Reveal>
+          <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
+            <div>
+              <SectionLabel>THE COLLECTIONS</SectionLabel>
+              <h2 className="font-display text-5xl mt-4">Curated chapters.</h2>
+            </div>
+            <Link to="/collections" className="luxe-link text-[11px] tracking-luxe uppercase">All Chapters →</Link>
+          </div>
+        </Reveal>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          {[
+            { img: editorial3, label: "WINTER MMXXVI", title: "The Overcoat", to: "/collections" },
+            { img: editorial2, label: "BLACK TIE", title: "Sovereign", to: "/collections" },
+            { img: editorial1, label: "EVERYDAY ELEVATED", title: "Atelier Edit", to: "/collections" },
+          ].map((c, i) => (
+            <Reveal key={c.label} delay={i * 0.1}>
+              <Link to={c.to} className="group block relative aspect-[3/4] overflow-hidden">
+                <img src={c.img} loading="lazy" alt={c.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <SectionLabel>{c.label}</SectionLabel>
+                  <h3 className="font-display text-3xl md:text-4xl mt-3 group-hover:text-gold transition-colors">{c.title}</h3>
+                  <span className="luxe-link mt-4 text-[10px] tracking-luxe uppercase self-start text-gold">Discover Chapter</span>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
         </div>
       </section>
 
@@ -122,6 +165,36 @@ function Home() {
             </Link>
           </Reveal>
         </div>
+      </section>
+
+      {/* MANIFESTO — split editorial */}
+      <section className="max-w-[1400px] mx-auto px-6 lg:px-10 py-28 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+        <Reveal className="lg:col-span-5 relative aspect-[4/5] overflow-hidden">
+          <img src={atelierDetail} loading="lazy" alt="Atelier detail" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0 vignette" />
+        </Reveal>
+        <Reveal className="lg:col-span-7" delay={0.15}>
+          <SectionLabel>MANIFESTO · NO. I</SectionLabel>
+          <h2 className="font-display text-5xl md:text-6xl mt-6 leading-[1]">
+            Slow couture. <br/><span className="italic text-gradient-gold">Faster lives.</span>
+          </h2>
+          <p className="mt-8 text-muted-foreground leading-loose text-lg max-w-xl">
+            We believe luxury is not loud. It is the silken weight of a hand-stitched lapel. The whisper of grade-A cashmere. The quiet authority of a man who has nothing to prove.
+          </p>
+          <div className="hairline my-10 max-w-xs" />
+          <div className="grid grid-cols-3 gap-6 max-w-lg">
+            {[
+              ["I.", "Italian craft"],
+              ["II.", "Lifetime made"],
+              ["III.", "Quietly bold"],
+            ].map(([n, t]) => (
+              <div key={t}>
+                <div className="font-display text-3xl text-gradient-gold">{n}</div>
+                <div className="text-[10px] tracking-luxe text-muted-foreground mt-2 uppercase">{t}</div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </section>
 
       {/* TRENDING */}
