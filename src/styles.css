@@ -123,6 +123,23 @@
     pointer-events: none;
     mix-blend-mode: overlay;
   }
+  .film-grain {
+    position: fixed; inset: 0; z-index: 70;
+    pointer-events: none;
+    opacity: 0.08;
+    mix-blend-mode: overlay;
+    background-image:
+      radial-gradient(oklch(1 0 0 / 0.6) 0.5px, transparent 0.5px),
+      radial-gradient(oklch(1 0 0 / 0.4) 0.5px, transparent 0.5px);
+    background-size: 3px 3px, 5px 5px;
+    background-position: 0 0, 1px 2px;
+    animation: grainShift 1.2s steps(6) infinite;
+  }
+  .vignette::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 5;
+    background: radial-gradient(ellipse at center, transparent 50%, oklch(0 0 0 / 0.55) 100%);
+  }
+  .text-shadow-luxe { text-shadow: 0 2px 30px oklch(0 0 0 / 0.6); }
   .luxe-link {
     position: relative;
     transition: color 0.3s ease;
@@ -154,5 +171,20 @@
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
 }
+
+@keyframes grainShift {
+  0%   { transform: translate(0, 0) }
+  20%  { transform: translate(-2%, 1%) }
+  40%  { transform: translate(1%, -2%) }
+  60%  { transform: translate(-1%, 2%) }
+  80%  { transform: translate(2%, -1%) }
+  100% { transform: translate(0, 0) }
+}
+
+@keyframes floatSlow {
+  0%,100% { transform: translateY(0) }
+  50% { transform: translateY(-12px) }
+}
+.float-slow { animation: floatSlow 8s ease-in-out infinite; }
 
 html, body { background: var(--background); }

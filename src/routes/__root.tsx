@@ -82,6 +82,7 @@ function RootComponent() {
           </main>
           <Footer />
           <Toaster />
+          <div className="film-grain" aria-hidden />
         </div>
       </StoreProvider>
     </QueryClientProvider>
