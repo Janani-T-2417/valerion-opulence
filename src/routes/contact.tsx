@@ -68,22 +68,19 @@ function Contact() {
         <Reveal delay={0.1}>
           <div className="glass border border-gold/20 p-8 space-y-7">
             <h3 className="font-display text-2xl">House Address</h3>
-            {[
-              [MapPin, "Via Montenapoleone 12", "Milano, Italia 20121"],
-              [Phone, "+39 02 7600 0000", "Mon–Sat · 10–19"],
-              [Mail, "concierge@valerion.com", "Reply within 24 hours"],
-            ].map(([Icon, a, b], i) => {
-              const I = Icon as typeof MapPin;
-              return (
-                <div key={i} className="flex gap-4">
-                  <I className="w-4 h-4 text-gold mt-1 shrink-0" />
-                  <div>
-                    <div className="text-sm text-foreground">{a}</div>
-                    <div className="text-xs text-muted-foreground mt-0.5">{b}</div>
-                  </div>
+            {([
+              { Icon: MapPin, a: "Via Montenapoleone 12", b: "Milano, Italia 20121" },
+              { Icon: Phone, a: "+39 02 7600 0000", b: "Mon–Sat · 10–19" },
+              { Icon: Mail, a: "concierge@valerion.com", b: "Reply within 24 hours" },
+            ] as const).map(({ Icon, a, b }, i) => (
+              <div key={i} className="flex gap-4">
+                <Icon className="w-4 h-4 text-gold mt-1 shrink-0" />
+                <div>
+                  <div className="text-sm text-foreground">{a}</div>
+                  <div className="text-xs text-muted-foreground mt-0.5">{b}</div>
                 </div>
-              );
-            })}
+              </div>
+            ))}
 
             <div className="hairline" />
 
