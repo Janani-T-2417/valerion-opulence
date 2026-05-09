@@ -125,7 +125,7 @@ export function Navbar() {
                 <button onClick={() => setSearch(false)} className="text-muted-foreground hover:text-gold ml-4"><X className="w-5 h-5" /></button>
               </div>
               <div className="mt-6 text-xs tracking-luxe text-muted-foreground">
-                POPULAR · <Link onClick={() => setSearch(false)} to="/shop" search={{}} className="text-foreground hover:text-gold ml-2">Tuxedo</Link>
+                POPULAR · <Link onClick={() => setSearch(false)} to="/shop" className="text-foreground hover:text-gold ml-2">Tuxedo</Link>
                 <Link onClick={() => setSearch(false)} to="/shop" className="text-foreground hover:text-gold ml-4">Cashmere</Link>
                 <Link onClick={() => setSearch(false)} to="/shop" className="text-foreground hover:text-gold ml-4">Loafers</Link>
               </div>
