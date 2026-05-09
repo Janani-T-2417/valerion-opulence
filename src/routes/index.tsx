@@ -12,8 +12,8 @@ import { Reveal, SectionLabel } from "@/components/Reveal";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "House of Valerion — The Winter Collection" },
-      { name: "description", content: "Cinematic menswear for the modern gentleman. Tuxedos, blazers, watches, loafers — tailored in Italy." },
+      { title: "House of Valerion — Luxury Menswear" },
+      { name: "description", content: "Elevated menswear for the modern gentleman. Suits, blazers, knitwear, hoodies and shirts — tailored in Italy." },
     ],
   }),
   component: Home,
@@ -41,7 +41,7 @@ function Home() {
 
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 pb-20 lg:pb-28 w-full">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }}>
-            <SectionLabel>WINTER MMXXV · CHAPTER I</SectionLabel>
+            <SectionLabel>THE ART OF LUXURY MENSWEAR</SectionLabel>
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.1, delay: 0.5, ease: [0.7,0,0.3,1] }}
