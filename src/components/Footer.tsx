@@ -8,8 +8,8 @@ export function Footer() {
       <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 py-20">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
           <div className="col-span-2 md:col-span-2">
-            <div className="font-display text-3xl tracking-[0.2em] text-gradient-gold">VALERION</div>
-            <div className="text-[10px] tracking-[0.5em] text-muted-foreground mt-2">HOUSE OF · EST. MMXXV</div>
+            <div className="font-display italic text-3xl tracking-[0.12em] text-gradient-gold">House of Valerion</div>
+            <div className="text-[10px] tracking-[0.5em] text-muted-foreground mt-3">MAISON · EST. MMXXV</div>
             <p className="text-sm text-muted-foreground mt-6 max-w-sm leading-relaxed">
               A modern atelier crafting cinematic menswear for the discerning few. Tailored in Italy, finished by hand.
             </p>

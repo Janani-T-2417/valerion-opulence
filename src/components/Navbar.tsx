@@ -62,8 +62,8 @@ export function Navbar() {
 
           <Link to="/" className="absolute left-1/2 -translate-x-1/2 select-none">
             <div className="text-center leading-none">
-              <div className="font-display text-2xl lg:text-[28px] tracking-[0.18em] text-gradient-gold">VALERION</div>
-              <div className="text-[9px] tracking-[0.5em] text-muted-foreground mt-1">HOUSE OF · EST. MMXXV</div>
+              <div className="font-display italic text-xl lg:text-[24px] tracking-[0.14em] text-gradient-gold whitespace-nowrap">House of Valerion</div>
+              <div className="text-[9px] tracking-[0.5em] text-muted-foreground mt-1.5">MAISON · EST. MMXXV</div>
             </div>
           </Link>
 
@@ -92,7 +92,7 @@ export function Navbar() {
             className="fixed inset-0 z-[60] bg-background"
           >
             <div className="flex justify-between items-center p-6 border-b border-border/40">
-              <span className="font-display tracking-[0.2em] text-gradient-gold text-xl">VALERION</span>
+              <span className="font-display italic tracking-[0.14em] text-gradient-gold text-lg">House of Valerion</span>
               <button onClick={() => setOpen(false)}><X className="w-5 h-5" /></button>
             </div>
             <div className="flex flex-col p-8 gap-6 font-display text-3xl">
@@ -121,13 +121,13 @@ export function Navbar() {
               <div className="text-[10px] tracking-luxe text-gold mb-4">SEARCH THE HOUSE</div>
               <div className="flex items-center border-b-2 border-gold pb-4">
                 <Search className="w-5 h-5 text-gold mr-4" />
-                <input autoFocus placeholder="Tuxedos, watches, loafers…" className="flex-1 bg-transparent text-2xl font-display outline-none placeholder:text-muted-foreground/50" />
+                <input autoFocus placeholder="Blazers, knitwear, hoodies…" className="flex-1 bg-transparent text-2xl font-display outline-none placeholder:text-muted-foreground/50" />
                 <button onClick={() => setSearch(false)} className="text-muted-foreground hover:text-gold ml-4"><X className="w-5 h-5" /></button>
               </div>
               <div className="mt-6 text-xs tracking-luxe text-muted-foreground">
                 POPULAR · <Link onClick={() => setSearch(false)} to="/shop" className="text-foreground hover:text-gold ml-2">Tuxedo</Link>
                 <Link onClick={() => setSearch(false)} to="/shop" className="text-foreground hover:text-gold ml-4">Cashmere</Link>
-                <Link onClick={() => setSearch(false)} to="/shop" className="text-foreground hover:text-gold ml-4">Loafers</Link>
+                <Link onClick={() => setSearch(false)} to="/shop" className="text-foreground hover:text-gold ml-4">Hoodies</Link>
               </div>
             </motion.div>
           </motion.div>

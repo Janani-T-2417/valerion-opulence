@@ -1,18 +1,30 @@
 import shirt from "@/assets/p-shirt.jpg";
 import blazer from "@/assets/p-blazer.jpg";
 import suit from "@/assets/p-suit.jpg";
-import loafers from "@/assets/p-loafers.jpg";
-import watch from "@/assets/p-watch.jpg";
 import jacket from "@/assets/p-jacket.jpg";
 import trousers from "@/assets/p-trousers.jpg";
-import accessory from "@/assets/p-accessory.jpg";
+import hoodie from "@/assets/p-hoodie.jpg";
+import polo from "@/assets/p-polo.jpg";
+import knit from "@/assets/p-knit.jpg";
+import oversized from "@/assets/p-oversized.jpg";
+import tee from "@/assets/p-tee.jpg";
 
 export type Product = {
   id: string;
   name: string;
   tagline: string;
   price: number;
-  category: "Shirts" | "Blazers" | "Suits" | "Jackets" | "Trousers" | "Watches" | "Loafers" | "Accessories";
+  category:
+    | "Shirts"
+    | "Oversized Shirts"
+    | "T-Shirts"
+    | "Polos"
+    | "Knitwear"
+    | "Hoodies"
+    | "Blazers"
+    | "Suits"
+    | "Jackets"
+    | "Trousers";
   image: string;
   colors: { name: string; hex: string }[];
   sizes: string[];
@@ -21,23 +33,23 @@ export type Product = {
 };
 
 const sizesClothing = ["XS", "S", "M", "L", "XL", "XXL"];
-const sizesShoe = ["UK 6", "UK 7", "UK 8", "UK 9", "UK 10", "UK 11"];
-const sizesOne = ["One Size"];
 
 export const products: Product[] = [
   { id: "valerion-noir-tux", name: "Noir Sovereign Tuxedo", tagline: "Midnight wool · Gold trim", price: 2480, category: "Suits", image: suit, colors: [{name:"Onyx",hex:"#0c0c0c"},{name:"Midnight",hex:"#0a1430"}], sizes: sizesClothing, badge:"Limited", description: "A masterpiece in midnight wool, hand-finished with delicate gold trim. The Noir Sovereign embodies timeless elegance for the man who commands every room." },
   { id: "valerion-onyx-blazer", name: "Onyx Atelier Blazer", tagline: "Italian wool · Peak lapel", price: 1180, category: "Blazers", image: blazer, colors:[{name:"Onyx",hex:"#0c0c0c"},{name:"Charcoal",hex:"#2a2a2a"}], sizes: sizesClothing, badge:"Bestseller", description:"Tailored in pure Italian wool with a sharp peak lapel and silken bemberg lining. Architectural shoulders meet effortless drape." },
   { id: "valerion-ivory-shirt", name: "Ivory Heritage Shirt", tagline: "Egyptian cotton · Mother-of-pearl", price: 245, category: "Shirts", image: shirt, colors:[{name:"Ivory",hex:"#f4ecd8"},{name:"White",hex:"#ffffff"},{name:"Slate",hex:"#48505a"}], sizes: sizesClothing, badge:"New", description:"Woven from 200-thread Egyptian cotton with mother-of-pearl buttons. Subtle sheen, infinite restraint." },
-  { id: "valerion-cognac-loafer", name: "Cognac Sovereign Loafer", tagline: "Hand-stitched leather", price: 690, category: "Loafers", image: loafers, colors:[{name:"Cognac",hex:"#8a4a24"},{name:"Espresso",hex:"#3a2418"}], sizes: sizesShoe, badge:"Bestseller", description:"Hand-cut Italian calfskin, patina-finished and Blake-stitched in Florence. A loafer that ages with grace." },
-  { id: "valerion-gold-chrono", name: "Aurelia Gold Chronograph", tagline: "Sapphire · Swiss movement", price: 3400, category: "Watches", image: watch, colors:[{name:"Gold/Black",hex:"#caa45a"}], sizes: sizesOne, badge:"Limited", description:"18k gold case, sapphire crystal, Swiss automatic movement. The watch is not the time — it is the statement." },
   { id: "valerion-overcoat", name: "Monolith Overcoat", tagline: "Cashmere blend · Double-breasted", price: 1890, category: "Jackets", image: jacket, colors:[{name:"Onyx",hex:"#0c0c0c"}], sizes: sizesClothing, badge:"New", description:"A column of pure cashmere-wool, double-breasted with horn buttons. Built for cinematic winters." },
   { id: "valerion-trousers", name: "Cassio Pleated Trouser", tagline: "Wool flannel · Tapered", price: 320, category: "Trousers", image: trousers, colors:[{name:"Onyx",hex:"#0c0c0c"},{name:"Charcoal",hex:"#2a2a2a"}], sizes: sizesClothing, description:"Single-pleat front, tapered leg, finished with side adjusters. Wool flannel with quiet authority." },
-  { id: "valerion-silk-tie", name: "Obsidian Silk Tie & Cufflinks", tagline: "7-fold silk · 24k accents", price: 220, category: "Accessories", image: accessory, colors:[{name:"Obsidian",hex:"#0c0c0c"}], sizes: sizesOne, badge:"New", description:"Seven-fold silk tie with hand-rolled edges, paired with 24k gold-plated cufflinks. Quiet luxury, loud presence." },
+  { id: "valerion-noir-hoodie", name: "Noir Heavyweight Hoodie", tagline: "Loopback cotton · Sculpted hood", price: 380, category: "Hoodies", image: hoodie, colors:[{name:"Onyx",hex:"#0c0c0c"},{name:"Charcoal",hex:"#2a2a2a"}], sizes: sizesClothing, badge:"Bestseller", description:"A 480gsm loopback cotton hoodie, garment-dyed in Portugal. Street luxury with the hand of cashmere." },
+  { id: "valerion-midnight-polo", name: "Midnight Mercerised Polo", tagline: "Mercerised cotton · Italian knit", price: 290, category: "Polos", image: polo, colors:[{name:"Midnight",hex:"#0a1430"},{name:"Onyx",hex:"#0c0c0c"}], sizes: sizesClothing, description:"Mercerised cotton-piqué knitted in Bergamo, with mother-of-pearl placket buttons. The polo, refined." },
+  { id: "valerion-camel-knit", name: "Camel Cashmere Rollneck", tagline: "Pure cashmere · Hand-finished", price: 720, category: "Knitwear", image: knit, colors:[{name:"Camel",hex:"#a87a4a"},{name:"Onyx",hex:"#0c0c0c"}], sizes: sizesClothing, badge:"New", description:"Spun from grade-A Mongolian cashmere, hand-linked rollneck with whisper-soft hand. The winter staple, elevated." },
+  { id: "valerion-onyx-oversized", name: "Onyx Oversized Shirt", tagline: "Drape silhouette · Soft poplin", price: 295, category: "Oversized Shirts", image: oversized, colors:[{name:"Onyx",hex:"#0c0c0c"}], sizes: sizesClothing, badge:"New", description:"A sculpted oversized silhouette in compact poplin. Architectural drape, effortless presence." },
+  { id: "valerion-ivory-tee", name: "Ivory Heavyweight Tee", tagline: "320gsm Supima · Tubular knit", price: 145, category: "T-Shirts", image: tee, colors:[{name:"Ivory",hex:"#f4ecd8"},{name:"White",hex:"#ffffff"},{name:"Onyx",hex:"#0c0c0c"}], sizes: sizesClothing, badge:"Bestseller", description:"Tubular-knit Supima cotton at 320gsm, garment-washed for the perfect hand. The premium tee, perfected." },
 ];
 
-export const allCategories = ["All","Shirts","Blazers","Suits","Jackets","Trousers","Watches","Loafers","Accessories"] as const;
-export const allColors = ["Onyx","Charcoal","Ivory","White","Cognac","Espresso","Gold/Black","Midnight","Slate","Obsidian"];
-export const allSizes = ["XS","S","M","L","XL","XXL","UK 7","UK 8","UK 9","UK 10","One Size"];
+export const allCategories = ["All","Shirts","Oversized Shirts","T-Shirts","Polos","Knitwear","Hoodies","Blazers","Suits","Jackets","Trousers"] as const;
+export const allColors = ["Onyx","Charcoal","Ivory","White","Midnight","Slate","Camel"];
+export const allSizes = ["XS","S","M","L","XL","XXL"];
 
 export function findProduct(id: string) {
   return products.find(p => p.id === id);

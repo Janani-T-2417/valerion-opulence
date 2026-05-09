@@ -44,7 +44,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "House of Valerion — Cinematic Menswear, Tailored in Italy" },
-      { name: "description", content: "House of Valerion — luxury men's fashion. Tuxedos, blazers, watches, and accessories crafted for the discerning few." },
+      { name: "description", content: "House of Valerion — luxury menswear. Tuxedos, blazers, knitwear, hoodies, shirts and trousers crafted for the discerning few." },
       { property: "og:title", content: "House of Valerion" },
       { property: "og:description", content: "Cinematic menswear, tailored in Italy." },
       { property: "og:type", content: "website" },
